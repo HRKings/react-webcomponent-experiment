@@ -17,11 +17,11 @@ cursor: pointer;
 display: inline-block;
 line-height: 1;
 
-color: ${props => props.primary ? "white" : "#333"};
-background-color: ${props => props.primary ? "#1ea7fd" : "transparent"};
-${props => props.primary ? "" : "box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"}
+color: ${(props: ButtonProps) => props.primary ? "white" : "#333"};
+background-color: ${(props: ButtonProps) => props.primary ? "#1ea7fd" : "transparent"};
+${(props: ButtonProps) => props.primary ? "" : "box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;"}
 
-${props => props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
+${(props: ButtonProps) => props.backgroundColor ? `background-color: ${props.backgroundColor};` : ""}
 
 font-size: 14px;
 padding: 11px 20px;
