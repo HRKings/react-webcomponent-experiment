@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// @ts-ignore next line
 import reactToWebComponent from 'react-to-webcomponent';
 
-import { Button } from './components/Button/Button';
+const modules = import.meta.globEager('./components/**/*.ts')
 
-const ButtonWC = reactToWebComponent(Button, React, ReactDOM);
-
-customElements.define("react-button", ButtonWC);
+for (const individualImport in modules) {
+  const webComponent = reactToWebComponent(modules[individualImport], React, ReactDOM);
+  customElements.define(modules[individualImport].displayName, webComponent);
+}
